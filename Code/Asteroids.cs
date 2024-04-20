@@ -16,6 +16,8 @@ namespace SpaceShoter
         //можно ли сделать сет приватным
         public static SpriteBatch SpriteBatch { get; private set; }
         static Star[] Stars;
+        public static StarShip StarShip { get; set; }
+
 
         public static int GetIntRnd(int min, int max)
         {
@@ -30,6 +32,7 @@ namespace SpaceShoter
             Stars = new Star[50];
             for (int i = 0; i < Stars.Length; i++)
                 Stars[i] = new Star(new Vector2(-Asteroids.GetIntRnd(1, 10), 0));
+            StarShip = new StarShip(new Vector2(0, Height / 2 - 20));
         }
 
         public static void Draw()
@@ -38,6 +41,7 @@ namespace SpaceShoter
             {
                 star.Draw();
             }
+            StarShip.Draw();
         }
 
         public static void Update()
@@ -86,6 +90,50 @@ namespace SpaceShoter
         public void Draw()
         {
             Asteroids.SpriteBatch.Draw(Texture2D, Pos, Color);
+        }
+    }
+
+    class StarShip
+    {
+        //можно ли тут писать с большой буквы переменные
+        Vector2 pos;
+        Color color = Color.White;
+        public int Speed { get; set; } = 5;
+        //можно ли сделать сет приватным
+        public static Texture2D Texture2D { get; set; }
+
+        public StarShip(Vector2 pos)
+        {
+            this.pos = pos;
+        }
+
+        public void Up()
+        {
+            if (this.pos.Y > 0) 
+                this.pos.Y -= Speed;
+        }
+
+        public void Down()
+        {
+            if (this.pos.Y < Asteroids.Height - Texture2D.Height) 
+                this.pos.Y += Speed;
+        }
+
+        public void Right()
+        {
+            if (this.pos.X < Asteroids.Width - Texture2D.Width) 
+                this.pos.X += Speed;
+        }
+
+        public void Left()
+        {
+            if (this.pos.X > 0) 
+                this.pos.X -= Speed;
+        }
+
+        public void Draw()
+        {
+            Asteroids.SpriteBatch.Draw(Texture2D, pos, color);
         }
     }
 }

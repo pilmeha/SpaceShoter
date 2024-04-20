@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpaceShoter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ff112771dca6c2804a33fa6c9cea6476df9b88f")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpaceShoter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpaceShoter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

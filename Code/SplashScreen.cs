@@ -14,12 +14,19 @@ namespace SpaceShoter
         static int timeCounter = 0;
         static Color color;
         public static SpriteFont Font { get; set; }
-        static Vector2 textPosition = new Vector2(1000, 100);
+        //static Vector2 textPosition = new Vector2(, 100);
 
-        public static void Draw(SpriteBatch _spriteBatch)
+        public static void Draw(SpriteBatch _spriteBatch, GraphicsDeviceManager _graphics)
         {
-            _spriteBatch.Draw(Background, Vector2.Zero, Color.White);
-            _spriteBatch.DrawString(Font, "Астероиды!", textPosition, color);
+            _spriteBatch.Draw(
+                Background, 
+                new Rectangle(0, 0, 
+                _graphics.PreferredBackBufferWidth, 
+                _graphics.PreferredBackBufferHeight), 
+                Color.White);
+            _spriteBatch.DrawString(Font, "Астероиды!", 
+                new Vector2((_graphics.PreferredBackBufferWidth / 100) * 55, 
+                (_graphics.PreferredBackBufferHeight / 100) * 15), color);
         }
 
         public static void Update()

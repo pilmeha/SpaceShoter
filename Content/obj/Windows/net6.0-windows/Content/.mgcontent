@@ -5,11 +5,13 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/garma/source/repos/SpaceShoter/Content/background2.jpg</File>
+    <File>C:/Users/garma/source/repos/SpaceShoter/Content/spaceShip.png</File>
     <File>C:/Users/garma/source/repos/SpaceShoter/Content/SplashFont.spritefont</File>
     <File>C:/Users/garma/source/repos/SpaceShoter/Content/star.png</File>
   </SourceFiles>
   <DestFiles>
     <File>background</File>
+    <File>spaceShip</File>
     <File>SplashFont</File>
     <File>star</File>
   </DestFiles>

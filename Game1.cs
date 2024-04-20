@@ -17,7 +17,7 @@ namespace SpaceShoter
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        Stat Stat = Stat.SplashScreen;
+        Stat Stat = Stat.Game;
 
         public Game1()
         {
@@ -29,10 +29,10 @@ namespace SpaceShoter
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            _graphics.PreferredBackBufferWidth = 1680;
-            _graphics.PreferredBackBufferHeight = 1050;
-            _graphics.IsFullScreen = false;
-            _graphics.ApplyChanges();
+            //_graphics.PreferredBackBufferWidth = 1680;
+            //_graphics.PreferredBackBufferHeight = 1050;
+            //_graphics.IsFullScreen = false;
+            //_graphics.ApplyChanges();
             base.Initialize();
         }
 
@@ -43,30 +43,35 @@ namespace SpaceShoter
             SplashScreen.Font = Content.Load<SpriteFont>("SplashFont");
             Asteroids.Init(_spriteBatch, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
             Star.Texture2D = Content.Load<Texture2D>("star");
+            StarShip.Texture2D = Content.Load<Texture2D>("spaceShip");
             // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
         {
-
+            KeyboardState keyboardState = Keyboard.GetState();
             switch (Stat)
             {
                 case Stat.SplashScreen:
                     SplashScreen.Update();
-                    if (Keyboard.GetState().IsKeyDown(Keys.Space)) Stat = Stat.Game;
+                    if (keyboardState.IsKeyDown(Keys.Space)) Stat = Stat.Game;
                     break;
 
                 case Stat.Game:
                     Asteroids.Update();
-                    if (Keyboard.GetState().IsKeyDown(Keys.Escape)) Stat = Stat.SplashScreen;
+                    if (keyboardState.IsKeyDown(Keys.Escape)) Stat = Stat.SplashScreen;
+                    if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W)) Asteroids.StarShip.Up();
+                    if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S)) Asteroids.StarShip.Down();
+                    if (keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D)) Asteroids.StarShip.Right();
+                    if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A)) Asteroids.StarShip.Left();
                     break;
             }
 
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            //    Exit();
+            if (keyboardState.IsKeyDown(Keys.Escape))
+                Exit();
 
             // TODO: Add your update logic here
-            
+
             base.Update(gameTime);
         }
 
@@ -77,7 +82,7 @@ namespace SpaceShoter
             switch (Stat)
             {
                 case Stat.SplashScreen:
-                    SplashScreen.Draw(_spriteBatch);
+                    SplashScreen.Draw(_spriteBatch, _graphics);
                     break;
 
                 case Stat.Game:

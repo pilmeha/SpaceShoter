@@ -25,6 +25,18 @@
 /processorParam:TextureFormat=Color
 /build:background2.jpg;background
 
+#begin spaceShip.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:spaceShip.png;spaceShip
+
 #begin SplashFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
