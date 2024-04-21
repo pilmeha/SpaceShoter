@@ -4,13 +4,17 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/garma/source/repos/SpaceShoter/Content/asteroid.png</File>
     <File>C:/Users/garma/source/repos/SpaceShoter/Content/background2.jpg</File>
+    <File>C:/Users/garma/source/repos/SpaceShoter/Content/Fire.png</File>
     <File>C:/Users/garma/source/repos/SpaceShoter/Content/spaceShip.png</File>
     <File>C:/Users/garma/source/repos/SpaceShoter/Content/SplashFont.spritefont</File>
     <File>C:/Users/garma/source/repos/SpaceShoter/Content/star.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File>background</File>
+    <File xsi:nil="true" />
     <File>spaceShip</File>
     <File>SplashFont</File>
     <File>star</File>
